@@ -1,72 +1,54 @@
-﻿@model BlogProject.Model.Entities.Concrete.Article
+﻿@model GetArticleVM
 
 @{
     ViewData["Title"] = "Detail";
 }
 
-<h1>Detail</h1>
+<h1>@Model.Title</h1>
 
 <div>
-    <h4>Article</h4>
     <hr />
+
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
+        <dt class="col-sm-2">
+            <img src="@Model.ImagePath" />
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
+        <dd class="col-sm-10">
+
+        <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Content)
+
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Content)
+        <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserFullName)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Content)
+        <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UserFullName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImagePath)
+        <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CategoryName)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImagePath)
+        <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CategoryName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AppUser)
+        <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LikeCount)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AppUser.FirstName)
+        <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LikeCount)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
+        <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.IsLiked)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModifiedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RemovedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RemovedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Statu)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Statu)
+        <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.IsLiked)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-controller="Article" asp-action="Edit" asp-route-id="@Model.ArticleID">Edit</a> |
     <a asp-action="List">Back to List</a>
 </div>

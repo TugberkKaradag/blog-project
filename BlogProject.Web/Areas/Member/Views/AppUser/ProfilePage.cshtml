@@ -1,0 +1,72 @@
+﻿@using BlogProject.Web.Areas.Member.Models.VMs
+@model GetAppUserVM
+
+@{
+    ViewData["Title"] = "ProfilePage";
+}
+
+<h1>Profile Page</h1>
+
+<div>
+    <h4>@Model.UserName</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArticleCount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArticleCount)
+        </dd>
+    </dl>
+</div>
+    <hr />
+    @foreach (var item in Model.Articles.Take(5).OrderBy(a=>a.CreatedDate))
+{
+    <div class="col-md-12">
+    <div class="card card-widget">
+        <div class="card-header">
+            <div class="user-block">
+                <span class="username"><a asp-controller="AppUser" asp-action="ProfilePage" asp-route-id="@item.AppUserId">@item.AppUser.FullName</a></span>
+                <span class="description">Shared publicly - @item.CreatedDate</span>
+            </div>
+            <!-- /.user-block -->
+            
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <img class="img-fluid pad" src="@item.ImagePath" alt="Photo">
+            <p><b>@item.Title</b></p>
+            <p>@item.Content.Substring(0,30)</p>
+            <a asp-controller="Article" asp-action="Detail" asp-route-id="@item.ID">devamını okumak için tıklayınız...</a>
+        </div>
+</div>
+</div>
+}
+    
+<div>
+    <a asp-controller="AppUser" asp-action="Index">Back to Home</a>
+</div>

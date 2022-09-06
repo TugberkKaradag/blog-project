@@ -1,0 +1,53 @@
+﻿@using BlogProject.Web.Models.VMs;
+@model GetArticleVM
+
+@{
+    ViewData["Title"] = "Detail";
+    int harfsayisi = @Model.Content.Trim().Length;
+    var begeniler = @Model.LikeCount;
+    int okumaSuresi = harfsayisi / 50;
+
+}
+
+<h1>
+    @Html.DisplayFor(model => model.Title)
+</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+
+
+        <dt class="col-sm-auto">
+        </dt>
+        <dd class="col-sm-auto">
+            <img src="@Model.ImagePath" />
+        </dd>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dd class="col-sm-10">
+            Yazar : @Html.DisplayFor(model => model.UserFullName)
+        </dd>
+
+        <dd class="col-sm-10">
+            Kategori :  @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+        <dd class="col-sm-10">
+            Oluşturma Tarihi :  @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dd class="col-sm-10">
+            <p>Beğeniler : @begeniler</p>
+        </dd>
+        <dd class="col-sm-10">
+            <p>Okuma süresi : @okumaSuresi dakika</p>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-info">Back to home</a>
+</div>

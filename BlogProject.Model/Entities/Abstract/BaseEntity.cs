@@ -1,7 +1,5 @@
 ﻿using BlogProject.Model.Enums;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BlogProject.Model.Entities.Abstract
 {
@@ -11,9 +9,9 @@ namespace BlogProject.Model.Entities.Abstract
 
         private DateTime _createdDate = DateTime.Now;
 
-        public DateTime CreatedDate       
+        public DateTime CreatedDate
         {
-            get { return _createdDate;  }
+            get { return _createdDate; }
             set { _createdDate = value; }
         }
 
@@ -23,10 +21,10 @@ namespace BlogProject.Model.Entities.Abstract
 
         private Statu _status = Statu.Active;
 
-        public Statu  Statu
+        public Statu Statu
         {
             get { return _status; }
-            set { _status=value; }
+            set { _status = value; }
         }
 
 

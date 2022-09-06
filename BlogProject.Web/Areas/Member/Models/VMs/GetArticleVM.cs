@@ -1,7 +1,5 @@
-﻿using System;
+﻿using BlogProject.Model.Entities.Concrete;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BlogProject.Web.Areas.Member.Models.VMs
 {
@@ -20,6 +18,14 @@ namespace BlogProject.Web.Areas.Member.Models.VMs
         public string UserFullName { get; set; }  // appUser
 
         public string CategoryName { get; set; }  // category
+        public int appUserId { get; set; }
+        public int LikeCount { get; set; }
+
+        public bool IsLiked { get; set; }
+
+        public List<Like> Likes { get; set; }
+
+        public List<Comment> Comments { get; set; }
 
     }
 }

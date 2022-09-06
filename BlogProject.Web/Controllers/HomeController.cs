@@ -3,8 +3,6 @@ using BlogProject.Web.Models.DTOs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +15,7 @@ namespace BlogProject.Web.Controllers
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
-        public HomeController(ILogger<HomeController> logger,UserManager<IdentityUser> userManager,SignInManager<IdentityUser> signInManager)
+        public HomeController(ILogger<HomeController> logger, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _logger = logger;
             this.userManager = userManager;
@@ -34,16 +32,16 @@ namespace BlogProject.Web.Controllers
         {
             if (ModelState.IsValid) // validasyon tamamsa
             {
-                IdentityUser identityUser =await  userManager.FindByEmailAsync(dto.Mail);
+                IdentityUser identityUser = await userManager.FindByEmailAsync(dto.Mail);
 
-                if (identityUser!=null) // kullanıcı var - bu maile sahip biri var
+                if (identityUser != null) // kullanıcı var - bu maile sahip biri var
                 {
-                   await  signInManager.SignOutAsync();  // içerde biri varsa cookiede silinsn
+                    await signInManager.SignOutAsync();  // içerde biri varsa cookiede silinsn
                     Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(identityUser, dto.Password, true, true);
                     if (result.Succeeded) // şifrede doğru ise
                     {
                         string role = (await userManager.GetRolesAsync(identityUser)).FirstOrDefault();
-                        return RedirectToAction("Index","AppUser", new { area=role });  // localHost/member/appuser/index - KAYITLI KULLANICI ANASAYFASI
+                        return RedirectToAction("Index", "AppUser", new { area = role });  // localHost/member/appuser/index - KAYITLI KULLANICI ANASAYFASI
                     }
 
                 }

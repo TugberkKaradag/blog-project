@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BlogProject.Model.Entities.Concrete
 {
-    public class Article :BaseEntity
+    public class Article : BaseEntity
     {
         public Article()
         {
@@ -26,17 +26,17 @@ namespace BlogProject.Model.Entities.Concrete
         // 1 makalenin 1 oluşturucusu
         public int AppUserId { get; set; }
 
-        public AppUser  AppUser { get; set; }
+        public virtual AppUser AppUser { get; set; }
 
         // 1 makalenin 1 kategorisi
-        public int CategoryId { get; set; }
-        public Category  Category { get; set; }
+        public List<int> CategoryId { get; set; }
+        public virtual List<Category> Category { get; set; }
 
         // 1 makalenin çokça yorumu
-        public List<Comment>  Comments { get; set; }
+        public virtual List<Comment> Comments { get; set; }
 
         // 1 makalenin çokça beğenisi
-        public List<Like> Likes { get; set; }
+        public virtual List<Like> Likes { get; set; }
 
     }
 }

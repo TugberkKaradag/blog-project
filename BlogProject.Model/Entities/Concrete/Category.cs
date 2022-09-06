@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BlogProject.Model.Entities.Concrete
 {
-    public class Category :BaseEntity
+    public class Category : BaseEntity
     {
         public Category()
         {
@@ -17,11 +17,11 @@ namespace BlogProject.Model.Entities.Concrete
         // navigation Property
 
         // 1 kategorinin çokça makalesi olabilir.
-        public List<Article> Articles { get; set; }
+        public virtual List<Article> Articles { get; set; }
 
         // 1 kategori çokça kullanıcı tarafından takip edilebilir.
 
-        public List<UserFollowCategory>  UserFollowCategories { get; set; }
+        public virtual List<UserFollowCategory> UserFollowCategories { get; set; }
 
     }
 }

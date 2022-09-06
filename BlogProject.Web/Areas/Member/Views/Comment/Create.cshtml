@@ -1,0 +1,46 @@
+﻿@model CreateCommentVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>@Model.ArticleTitle</h4>
+<hr />
+
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Text" class="control-label"></label>
+                <input asp-for="Text" class="form-control" />
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" hidden>
+                <label asp-for="ArticleID" class="control-label"></label>
+                <input asp-for="ArticleID" class="form-control" />
+                <span asp-validation-for="ArticleID" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="AppUserID" class="control-label"></label>
+                <input asp-for="AppUserID" class="form-control" />
+                <span asp-validation-for="AppUserID" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="ArticleTitle" class="control-label"></label>
+                <input asp-for="ArticleTitle" class="form-control" />
+                <span asp-validation-for="ArticleTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

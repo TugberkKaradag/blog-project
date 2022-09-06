@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BlogProject.Web.Models.VMs.GetArticleVM>
+
+@{
+    ViewData["Title"] = "ListByCategory";
+}
+
+<h1></h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.UserFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="nav-item">
+                            <a class="nav-link text-blue" asp-area="" asp-route-id="@item.ArticleID" asp-controller="Article" asp-action="GetArticle">@item.Title</a>
+                        </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content).ToString().Substring(0,5)...
+                </td>
+
+                <td>
+                    <div class="nav-item">
+                            <a class="nav-link text-blue" asp-area="" asp-route-id="@item.appUserId" asp-controller="User" asp-action="ProfilePage">@item.UserFullName</a>
+                        </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+
+
+            </tr>
+        }
+        <a asp-action="List" asp-controller="Category" class="btn btn-info">Back To List</a>
+    </tbody>
+</table>

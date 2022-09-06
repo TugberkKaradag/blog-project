@@ -2,27 +2,24 @@
 using BlogProject.Model.EntityTypeConfigurations.Concrete;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BlogProject.Dal.Context
 {
     // DbContextten değil IdentityDbContextten kalıtım aldık çünkü projede idetity kütüphanesini kullanacağız.
     public class ProjectContext : IdentityDbContext
     {
-        public ProjectContext(DbContextOptions options):base(options) 
+        public ProjectContext(DbContextOptions options) : base(options)
         {
 
         }
 
 
-        public DbSet<Article>  Articles { get; set; }
-        public DbSet<Category>  Categories { get; set; }
-        public DbSet<Comment>  Comments { get; set; }
-        public DbSet<Like>  Likes { get; set; }
-        public DbSet<UserFollowCategory>  FollowCategories { get; set; }
-        public DbSet<AppUser>  AppUsers { get; set; }
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Like> Likes { get; set; }
+        public DbSet<UserFollowCategory> FollowCategories { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)

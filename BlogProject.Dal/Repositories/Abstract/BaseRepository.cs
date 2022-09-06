@@ -1,14 +1,13 @@
 ﻿using BlogProject.Dal.Context;
 using BlogProject.Dal.Repositories.Interfaces.Abstract;
 using BlogProject.Model.Entities.Abstract;
+using BlogProject.Model.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using BlogProject.Model.Enums;
 
 namespace BlogProject.Dal.Repositories.Abstract
 {
@@ -30,6 +29,7 @@ namespace BlogProject.Dal.Repositories.Abstract
 
         public void Create(T entity)
         {
+            entity.Statu = Statu.Passive;
             _table.Add(entity);
             _context.SaveChanges();
         }
@@ -44,11 +44,11 @@ namespace BlogProject.Dal.Repositories.Abstract
         public TResult GetByDefault<TResult>(Expression<Func<T, TResult>> selector, Expression<Func<T, bool>> expression, Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null)
         {
             IQueryable<T> query = _table;   // tablomuuzu sorgulanabilir T tipini barındıran bir tablo olarak atadık.
-            if (include!=null)    // include parametresi varsa
+            if (include != null)    // include parametresi varsa
             {
                 query = include(query);
             }
-            if (expression!=null)  // expression parametresi varsa
+            if (expression != null)  // expression parametresi varsa
             {
                 query = query.Where(expression);
             }
@@ -68,7 +68,7 @@ namespace BlogProject.Dal.Repositories.Abstract
             {
                 query = query.Where(expression);
             }
-            if (orderBy!=null)  // orderBy parametrsi varsa
+            if (orderBy != null)  // orderBy parametrsi varsa
             {
                 return orderBy(query).Select(selector).ToList();
             }

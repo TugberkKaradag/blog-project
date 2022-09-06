@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BlogProject.Model.Entities.Concrete.Category>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="nav-item">
+                            <a class="nav-link text-blue" asp-area="" asp-route-id="@item.ID" asp-controller="Article" asp-action="ListByCategory">@item.Name</a>
+                        </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

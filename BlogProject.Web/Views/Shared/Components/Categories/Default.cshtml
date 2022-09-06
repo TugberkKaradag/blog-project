@@ -1,0 +1,19 @@
+﻿
+@model List<GetCategoryForComponentDTO>
+
+
+@foreach (var item in Model)
+{
+
+    <div class="card card-widget">
+        <div class="card-header">
+            <div class="user-block">
+                <span class="name">@item.Name</span>
+                <span class="description">Shared publicly - @item.CreatedDate</span>
+            </div>
+
+        </div>
+
+    </div>
+}
+

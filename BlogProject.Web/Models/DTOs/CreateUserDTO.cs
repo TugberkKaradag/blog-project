@@ -1,15 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace BlogProject.Web.Models.DTOs
 {
     public class CreateUserDTO
     {
-        [Required(ErrorMessage ="alan boş bırakılamaz")]
+        [Required(ErrorMessage = "alan boş bırakılamaz")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "alan boş bırakılamaz")]
@@ -19,6 +15,8 @@ namespace BlogProject.Web.Models.DTOs
 
         [Required(ErrorMessage = "alan boş bırakılamaz")]
         [DataType(DataType.Password)]
+        [RegularExpression(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)).+$")]
+        [StringLength(100, ErrorMessage = "{0} en az {2} karakter olmalıdır.", MinimumLength = 6)]
         public string Password { get; set; }
 
         public string ImagePath { get; set; }

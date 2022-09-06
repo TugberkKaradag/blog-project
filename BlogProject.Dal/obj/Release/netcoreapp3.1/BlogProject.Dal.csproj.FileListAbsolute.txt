@@ -1,0 +1,16 @@
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\bin\Release\netcoreapp3.1\BlogProject.Dal.deps.json
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\bin\Release\netcoreapp3.1\BlogProject.Dal.runtimeconfig.json
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\bin\Release\netcoreapp3.1\BlogProject.Dal.runtimeconfig.dev.json
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\bin\Release\netcoreapp3.1\BlogProject.Dal.dll
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\bin\Release\netcoreapp3.1\BlogProject.Dal.pdb
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\bin\Release\netcoreapp3.1\BlogProject.Model.dll
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\bin\Release\netcoreapp3.1\BlogProject.Model.pdb
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\obj\Release\netcoreapp3.1\BlogProject.Dal.csproj.AssemblyReference.cache
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\obj\Release\netcoreapp3.1\BlogProject.Dal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\obj\Release\netcoreapp3.1\BlogProject.Dal.AssemblyInfoInputs.cache
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\obj\Release\netcoreapp3.1\BlogProject.Dal.AssemblyInfo.cs
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\obj\Release\netcoreapp3.1\BlogProject.Dal.csproj.CoreCompileInputs.cache
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\obj\Release\netcoreapp3.1\BlogProject.Dal.csproj.CopyComplete
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\obj\Release\netcoreapp3.1\BlogProject.Dal.dll
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\obj\Release\netcoreapp3.1\BlogProject.Dal.pdb
+C:\Users\tugbe\Downloads\BlogProject5432_25062022\BlogProject.Dal\obj\Release\netcoreapp3.1\BlogProject.Dal.genruntimeconfig.cache

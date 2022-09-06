@@ -1,14 +1,11 @@
 ﻿using BlogProject.Model.Entities.Concrete;
 using BlogProject.Model.EntityTypeConfigurations.Abstract;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BlogProject.Model.EntityTypeConfigurations.Concrete
 {
-    public class ArticleMap :BaseMap<Article>
+    public class ArticleMap : BaseMap<Article>
     {
         public override void Configure(EntityTypeBuilder<Article> builder)
         {
@@ -23,7 +20,6 @@ namespace BlogProject.Model.EntityTypeConfigurations.Concrete
 
             //bir makalenin bir kategorisi vardır ve bunlar kategoriId üzerinden birbirine bağlıdır.
             builder.HasOne(a => a.Category).WithMany(a => a.Articles).HasForeignKey(a => a.CategoryId).OnDelete(DeleteBehavior.Restrict);
-
             base.Configure(builder);
         }
 

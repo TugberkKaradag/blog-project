@@ -1,0 +1,28 @@
+﻿@using BlogProject.Model.Entities.Concrete
+@using BlogProject.Web.Models.VMs;
+@model BlogProject.Model.Entities.Concrete.Article
+
+@{
+    ViewData["Title"] = "GetArticle";
+}
+
+<h1>@Model.Title</h1>
+
+<div>
+    <h4></h4>
+    @Model.CreatedDate
+    <hr />
+    <img src="@Model.ImagePath" />
+    <dl class="row">
+
+        <dd class="col-sm-12">
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+    </dl>
+</div>
+
+<a class="bg-gray-dark" asp-controller="Comment" asp-action="Create" asp-route-id="@Model.ID">Yorum Yap</a>
+
+    <a asp-controller="Category" asp-action="List">Back to List</a>
+
+

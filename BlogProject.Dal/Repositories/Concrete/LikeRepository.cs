@@ -3,8 +3,8 @@ using BlogProject.Dal.Repositories.Interfaces.Concrete;
 using BlogProject.Model.Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace BlogProject.Dal.Repositories.Concrete
 {
@@ -29,6 +29,11 @@ namespace BlogProject.Dal.Repositories.Concrete
         {
             _table.Remove(entity);
             _context.SaveChanges();
+        }
+
+        public bool IsLiked(Expression<Func<Like, bool>> expression)
+        {
+            return _table.Where(expression).Any();
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using BlogProject.Model.Entities.Abstract;
 using Microsoft.AspNetCore.Http;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace BlogProject.Model.Entities.Concrete
 {
@@ -38,19 +36,19 @@ namespace BlogProject.Model.Entities.Concrete
 
 
         // 1 kullanıcı çokça makale
-        public List<Article> Articles { get; set; }
+        public virtual List<Article> Articles { get; set; }
 
         //1 kullaıcının çokça yorumu olabilir
 
-        public List<Comment>  Comments { get; set; }
+        public virtual List<Comment> Comments { get; set; }
 
         //1 kullanıcının çokça beeğeniis olabilir.
 
-        public List<Like>  Likes { get; set; }
+        public virtual List<Like> Likes { get; set; }
 
         // 1 user çokça kategoriyi takip etmek isteyebilir.
 
-        public List<UserFollowCategory>  UserFollowCategories { get; set; }
+        public virtual List<UserFollowCategory> UserFollowCategories { get; set; }
 
     }
 }

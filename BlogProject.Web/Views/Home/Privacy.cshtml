@@ -1,6 +1,26 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Hakkımızda";
 }
 <h1>@ViewData["Title"]</h1>
+<div class="img-fluid"><img src="~/images/blog-acmak-icin-en-iyi-siteler.jpg" width="300" height="300"/></div>
+"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d752.8227215276374!2d28.76918983573839!3d40.99700600675994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa3e0ee8fd7a1%3A0xed10e028fe3bc8ba!2zQ3VtaHVyaXlldCwgTGV5bGFrIFNrLiBObzo3LCAzNDI5MCBLw7zDp8O8a8OnZWttZWNlL8Swc3RhbmJ1bA!5e0!3m2!1str!2str!4v1661939020061!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div class="iframe-mode"></div>
+<form>
+    <div class="col-md-4" method="post">
+        Bizimle iletişime geçin.
+        <textarea >
 
-<p>Use this page to detail your site's privacy policy.</p>
+        </textarea>
+        <div onclick="sendEmail();"><button>İletişime geç</button></div>
+
+    </div>
+</form>
+
+<script>
+function sendEmail() 
+{
+    window.location = "mailto:tugberkkaradag1@gmail.com";
+}
+</script>
+

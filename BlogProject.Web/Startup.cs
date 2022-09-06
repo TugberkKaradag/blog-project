@@ -4,16 +4,13 @@ using BlogProject.Dal.Repositories.Interfaces.Concrete;
 using BlogProject.Web.Models.Mappers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 
 namespace BlogProject.Web
 {
@@ -31,19 +28,19 @@ namespace BlogProject.Web
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<ProjectContext>(options=> options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ProjectContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ProjectContext>();
 
             // coookie için kod yazılacak.
-            services.ConfigureApplicationCookie(a=> 
+            services.ConfigureApplicationCookie(a =>
             {
                 a.LoginPath = new PathString("/Home/Login");
                 a.ExpireTimeSpan = TimeSpan.FromDays(1); // kaç gün cookiede kalacak
                 a.Cookie = new CookieBuilder
-                { 
+                {
                     Name = "UserCookie",
-                    SecurePolicy = CookieSecurePolicy.Always 
+                    SecurePolicy = CookieSecurePolicy.Always
                 };
             });
 
@@ -54,6 +51,7 @@ namespace BlogProject.Web
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ILikeRepository, LikeRepository>();
             services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<IUserFollowCategoryRepository, UserFollowCategoryRepository>();
 
             services.AddAutoMapper(typeof(Mapping));
 
@@ -81,7 +79,7 @@ namespace BlogProject.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name:"area",
+                    name: "area",
                     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                     );
 

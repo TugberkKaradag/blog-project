@@ -1,0 +1,71 @@
+﻿@using BlogProject.Web.Areas.Member.Models.VMs
+@model List<GetArticleForNonUserComponentDTO>
+
+
+@foreach (var item in Model)
+{
+<div class="col-md-12">
+    <div class="card card-widget">
+        <div class="card-header">
+            <div class="user-block">
+                <span class="username"><a asp-controller="User" asp-action="ProfilePage" asp-route-id="@item.UserId">@item.UserFullName</a></span>
+                <span class="description">Shared publicly - @item.CreatedDate</span>
+            </div>
+            <!-- /.user-block -->
+         @*   <div class="card-tools">
+                <button type="button" class="btn btn-tool" title="Mark as read">
+                    <i class="far fa-circle"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>*@
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <img class="img-fluid pad" src="@item.Image" alt="Photo">
+            <p><b>@item.Title</b></p>
+            <p>@item.Content.Substring(0,Math.Min(@item.Content.Length - 1,300))</p>
+            <a asp-controller="Article" asp-action="Detail" asp-route-id="@item.ArticleID">devamını okumak için tıklayınız...</a>
+        </div>
+        @foreach (var ite in Model)
+        {
+            @if (ite.Comments != null)
+            {
+                @foreach (var itemz in @ite.Comments)
+                {
+                    @if (@ite.ArticleID == @itemz.ArticleId)
+                    {
+                        <!-- /.card-body -->
+                        <div class="card-footer card-comments">
+                            <div class="card-comment">
+                                <div class="product-image-thumb">
+                                    <img src="@ite.Image">
+                                </div>
+                                <div class="comment-text">
+                                    <span class="username">
+                                        @ite.UserFullName
+                                    </span>
+                                </div>
+                            </div>
+                            @itemz.Text
+                        </div>
+                        <!-- /.card-footer -->
+                    }
+                }
+            }
+            else
+            {
+
+            }
+        }
+
+        <!-- /.card-footer -->
+</div>
+    </div>
+}
+

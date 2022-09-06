@@ -1,5 +1,5 @@
-﻿
-@model List<Category>
+﻿@using BlogProject.Web.Areas.Member.Models.DTOs
+@model List<GetCategoryForFollowsDTO>
 
 <div class="card">
     <div class="card-header">
@@ -20,28 +20,36 @@
         <table class="table">
             <thead>
                 <tr>
-                  
+
                     <th>Kategori Ad</th>
-                   
+
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.Name</td>
+                        <td><a asp-action="ListByCategory" asp-controller="Article" asp-route-id="@item.ID">@item.Name</a></td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-success">Güncelle</a>
                         </td>
-                        <td>
-                            <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Sil</a>
-                        </td>
+
                         <td>
                             <a asp-action="Detail" asp-route-id="@item.ID" class="btn btn-warning">Detay</a>
                         </td>
+
+                        @if(@item.IsFollowing == true)
+                        {
                         <td>
-                            <a asp-action="Follow" asp-route-id="@item.ID" class="btn btn-info">Takip Et</a>
+                            <a asp-action="Unfollow" asp-route-id="@item.ID" class="btn btn-info">Takibi Bırak</a>
                         </td>
+                        }
+                        else
+                        {
+                        <td>
+                            <a asp-action="Follow" asp-route-id="@item.ID" class="btn btn-info">Takip et</a>
+                        </td>
+                        }
                     </tr>
                 }
 
